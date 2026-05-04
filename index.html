@@ -829,11 +829,13 @@
         <div class="projects-list">
 
             <!-- P1 -->
+            <<!-- P1 -->
             <div class="proj-card fade">
-                <div class="proj-card-inner">
-                    <div class="proj-card-body">
+                <div class="proj-card-inner" style="grid-template-columns: 1fr;">
+                    <div class="proj-card-body" style="border-right: none;">
+
                         <div class="proj-number">P-01 &nbsp;·&nbsp; PeAR Lab, WPI</div>
-                        <div class="proj-title">Lensless Depth Estimation — ADMM & FISTA</div>
+                        <div class="proj-title">Lensless Depth Estimation — ADMM &amp; FISTA</div>
                         <div class="proj-stack">Python · NVIDIA Jetson · ADMM · FISTA · NumPy · OpenCV</div>
                         <div class="proj-desc">Implemented and tuned optimization-based image reconstruction for lensless depth estimation. Achieving 14 Hz on a Jetson Orin Nano required careful memory layout, single-iteration approximations, and grayscale-only reconstruction to cut dimensionality by 3x. Reached 95% reconstruction accuracy within real-time compute budget.</div>
                         <div class="proj-tags">
@@ -842,18 +844,44 @@
                             <span class="tag">Optimization</span>
                             <span class="tag">Real-Time</span>
                         </div>
-                    </div>
-                    <div class="proj-card-media">
-                        <div class="proj-media-placeholder">
-                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#9b9990" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 9.75h18"/></svg>
-                            <div class="proj-media-label">Add figure / video</div>
+
+                        <!-- Pipeline SVG -->
+                        <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+
+                            <!-- Row 1: first image (smaller) + video side by side -->
+                            <div style="display:flex; gap:10px; align-items:stretch;">
+
+
+                                <img src="images/lensless-tree-pipeline.svg"
+                                     alt="ADMM lensless reconstruction pipeline"
+                                     style="width:55%; object-fit:contain; border-radius:6px; border:1px solid #e0dfd9;">
+
+                                <div style="flex:1; background:#f7f7f5; border-radius:6px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                    <video controls style="width:100%; height:100%; object-fit:cover;">
+                                        <source src="videos/drone_cad_design.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Row 2: two images side by side -->
+                            <div style="display:flex; gap:10px; align-items:stretch;">
+                                <img src="images/drone_integration.png"
+                                     alt="Drone integration"
+                                     style="flex:1; width:0; object-fit:contain; border-radius:6px; border:1px solid #e0dfd9;">
+                                <img src="images/admm_perception_pipeline.png"
+                                     alt="ADMM lensless reconstruction pipeline"
+                                     style="flex:1; width:0; object-fit:contain; background:#f7f7f5; border-radius:6px; border:1px solid #e0dfd9;">
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
             <!-- P2 -->
-            <<!-- P2 -->
+            <!-- P2 -->
             <div class="proj-card fade">
                 <div class="proj-card-inner" style="grid-template-columns: 1fr;">
                     <div class="proj-card-body" style="border-right: none;">
@@ -869,27 +897,25 @@
                             <span class="tag">ROS2</span>
                         </div>
 
-                        <!-- SVG cover + video below the text -->
                         <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
 
-                            <!-- SVG cover diagram — save the SVG from Claude as ros2-cover.svg in your images/ folder -->
                             <img src="images/ros2-cover.svg"
                                  alt="SLAM mapping and AMCL localization diagram"
                                  style="width:100%; border-radius:5px; border:1px solid #e0dfd9;">
 
-                            <div style="display:flex; gap:10px;">
+                            <div style="display:flex; gap:10px; width:100%;">
 
-                                <div style="height:200px; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; background:#f7f7f5; display:flex; align-items:center; justify-content:center;">
-                                    <div style="height:200px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                                        <video controls style="width:200px; height:200px; object-fit:contain; transform:rotate(90deg);">
-                                            <source src="videos/ros2_turtlebot3.mov" type="video/mp4">
-                                        </video>
-                                    </div>
+                                <div style="flex:1; height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                    <video controls style="width:100%; height:100%; object-fit:contain;">
+                                        <source src="videos/ros2_turtlebot.mp4" type="video/mp4">
+                                    </video>
                                 </div>
 
-                                <img src="images/ros2-map.png"
-                                     alt="Generated occupancy map"
-                                     style="width:50%; height:200px; object-fit:cover; border-radius:5px; border:1px solid #e0dfd9;">
+                                <div style="flex:1; height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                    <video controls style="width:100%; height:100%; object-fit:contain;">
+                                        <source src="videos/ros2_turtlebot_slam.mp4" type="video/mp4">
+                                    </video>
+                                </div>
 
                             </div>
 
@@ -919,30 +945,29 @@
                             <img src="images/Solgud_Robotics.png"
                                  alt="Solgud robot"
                                  style=" height:200px; object-fit:contain; border-radius:5px; border:1px solid #e0dfd9;">
-
                             <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-                                <video controls style="width:100%; height:100%; object-fit:contain;">
-                                    <source src="videos/solgud_demo1.mov" type="video/mp4">
+                                <video controls style="height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo3.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                                 <video controls style="width:100%; height:100%; object-fit:contain;">
-                                    <source src="videos/solgud_demo.mov" type="video/mp4">
-                                </video>
-                            </div>
-                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-                                <video controls style="width:100%; height:100%; object-fit:contain;">
-                                    <source src="videos/solgud_demo2.mov" type="video/mp4">
-                                </video>
-                            </div>
-                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-                                <video controls style="width:100%; height:100%; object-fit:contain;">
-                                    <source src="videos/solgud_demo3.mov" type="video/mp4">
-                                </video>
-                            </div>
-                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-                                <video controls style="width:100%; height:100%; object-fit:contain;">
-                                    <source src="videos/solgud_demo4.mov" type="video/mp4">
+                                    <source src="videos/solgud_demo4.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -976,17 +1001,17 @@
                             <div style="display:flex; gap:10px;">
                                 <div style="height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                                     <video controls style="width:100%; height:100%; object-fit:contain;">
-                                        <source src="videos/apriltag-demo1.mov" type="video/mp4">
+                                        <source src="videos/apriltag-demo1.mp4" type="video/mp4">
                                     </video>
                                 </div>
                                 <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                                     <video controls style="width:100%; height:100%; object-fit:contain;">
-                                        <source src="videos/apriltag-demo2.mov" type="video/mp4">
+                                        <source src="videos/apriltag-demo2.mp4" type="video/mp4">
                                     </video>
                                 </div>
                                 <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                                     <video controls style="width:100%; height:100%; object-fit:contain;">
-                                        <source src="videos/apriltag-demo3.mov" type="video/mp4">
+                                        <source src="videos/apriltag-demo3.mp4" type="video/mp4">
                                     </video>
                                 </div>
                                 <img src="images/apriltag-main.png"
@@ -1029,13 +1054,13 @@
 
                             <!-- Video -->
                             <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-                                <video controls style="height:200%; object-fit:cover;">
-                                    <source src="videos/serial_arm2.mov" type="video/mp4">
+                                <video controls style="width:100%;height:200%; object-fit:cover;">
+                                    <source src="videos/serial_arm.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                                 <video controls style="width:100%; height:100%; object-fit:cover;">
-                                    <source src="videos/serial_arm1.mov" type="video/mp4">
+                                    <source src="videos/serial_arm1.mp4" type="video/mp4">
                                 </video>
                             </div>
 
@@ -1052,6 +1077,7 @@
 </div>
 
 <!-- EVENT CAMERA IDEAS -->
+<!-- EVENT CAMERA IDEAS -->
 <div id="ideas">
     <div class="section container">
         <div class="section-header fade">
@@ -1064,82 +1090,145 @@
             <div class="idea-card-header">
                 <div>
                     <div class="idea-header-label">Perception Challenges in Dense Warehouse Environments</div>
-                    <div class="idea-header-title">Event Cameras as a Solution to Motion Blur &amp; Dynamic Scene Perception</div>
+                    <div class="idea-header-title">Event Cameras as a Promising Direction for Motion Blur &amp; Dynamic Scene Perception</div>
+                </div>
+                <div style="flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+                    <span style="background:#fffbeb; border:1px solid #fde68a; color:#92400e; border-radius:4px; padding:5px 12px; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; white-space:nowrap;">
+                        Research-Backed Proposal
+                    </span>
+                    <span style="background:#f0fdf4; border:1px solid #bbf7d0; color:#057a55; border-radius:4px; padding:5px 12px; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; white-space:nowrap;">
+                        Not Yet Implemented
+                    </span>
                 </div>
             </div>
+
             <div class="idea-body">
 
+                <!-- Confidence disclaimer -->
+                <div style="background:#fffbeb; border:1px solid #fde68a; border-left:3px solid #92400e; border-radius:0 6px 6px 0; padding:14px 18px; margin-bottom:28px;">
+                    <div style="font-size:12px; font-weight:600; color:#92400e; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:4px;">How to read this section</div>
+                    <div style="font-size:13px; color:#78350f; line-height:1.7;">
+                        This is a technically grounded proposal, not a proven deployment. The underlying physics of event cameras — asynchronous pixel firing, log intensity detection, zero motion blur — are well established in the literature and have been demonstrated on mobile robots in research settings. The specific application to forklift-mounted warehouse inventory perception is my own analysis of where these properties could solve real failure modes. Open engineering questions remain around calibration at scale, cost, and integration with existing frame-based pipelines.
+                    </div>
+                </div>
+
                 <p class="idea-intro">
-                    Forklift-mounted vision systems face a specific and well-known set of failure modes. Understanding these challenges — and having concrete ideas to address them — is as important as the implementation skills themselves. Below is my analysis of the two hardest perception problems in this domain and a technically grounded proposal for addressing them.
+                    Forklift-mounted vision systems face a specific and well-known set of failure modes in dense warehouse environments. The two hardest are motion blur under heavy payload and reliable detection in dynamic, cluttered aisles. Below is my analysis of both problems and a proposal — backed by published research — for how event cameras could address them.
                 </p>
 
+                <!-- CHALLENGES FIRST -->
                 <div class="divider-label">
                     <span class="divider-label-text">Core Challenges</span>
                     <div class="divider-line"></div>
                 </div>
 
-                <div class="challenges-grid">
+                <div class="challenges-grid" style="margin-bottom:36px;">
                     <div class="challenge-item">
                         <div class="challenge-title">Challenge 1 — Motion Blur from Payload Vibration</div>
-                        <div class="challenge-desc">Forklifts carrying heavy loads generate significant vibration and abrupt motion, particularly during start/stop and turning. Conventional frame-based cameras integrate light over a fixed exposure window, so even moderate motion produces smeared images. The heavier the payload, the more pronounced the effect — precisely when reliable perception matters most.</div>
+                        <div class="challenge-desc">Forklifts carrying heavy loads generate significant vibration and abrupt motion, particularly during start/stop and turning. Conventional frame-based cameras integrate light over a fixed exposure window — even moderate motion produces smeared images. The heavier the payload, the more pronounced the effect, precisely when reliable perception matters most.</div>
                     </div>
                     <div class="challenge-item">
                         <div class="challenge-title">Challenge 2 — Dense, Cluttered, and Dynamic Environments</div>
-                        <div class="challenge-desc">Warehouse aisles are densely packed with pallets, racking, and workers — a fundamentally cluttered scene. Unlike static environments, objects are constantly moving (conveyors, workers, other vehicles). Standard cameras and LiDAR suffer from latency that makes it difficult to track fast-moving objects or detect sudden obstructions before they become a hazard.</div>
+                        <div class="challenge-desc">Warehouse aisles are densely packed with pallets, racking, and workers. Objects are constantly moving — conveyors, workers, other vehicles. Standard cameras and LiDAR suffer from latency that makes it difficult to track fast-moving objects or detect sudden obstructions. Processing every full frame wastes bandwidth when most of the scene is static.</div>
                     </div>
                 </div>
 
+                <!-- PROPOSED SOLUTION HEADER -->
                 <div class="divider-label">
-                    <span class="divider-label-text">Proposed Solution: Event Camera Integration</span>
+                    <span class="divider-label-text">Proposed Solution — Event Camera Integration</span>
                     <div class="divider-line"></div>
                 </div>
 
                 <div class="solution-block">
                     <div class="solution-header">
                         <span class="solution-number">01</span>
-                        <span class="solution-title">Why Event Cameras Are Built for This Problem</span>
+                        <span class="solution-title">Why the physics support this — log intensity and asynchronous pixels</span>
                     </div>
                     <div class="solution-body">
-                        Unlike frame cameras that capture full images at a fixed rate, <strong>event cameras fire asynchronously at the pixel level</strong> — each pixel independently reports a brightness change the moment it occurs, with microsecond-level latency. This means motion blur is eliminated by design: there is no exposure window over which light accumulates. A forklift vibrating under payload doesn't degrade an event camera the way it would a standard sensor. Research on industrial robotics has confirmed that their <strong>high temporal resolution, high dynamic range (~120 dB), and inherent resistance to motion blur</strong> make them well-suited for exactly this class of environment.
+                        Event cameras operate on two fundamental principles that directly address the failure modes above. First, <strong>each pixel independently fires an event the moment its log intensity changes</strong> — there is no global exposure window, so there is no mechanism by which motion can accumulate blur. A forklift vibrating under a 2,000 lb pallet generates exactly the same crisp edge events as one carrying nothing. Second, <strong>pixels that see no brightness change generate zero output</strong> — in a warehouse where most of the scene is static racking and floor, the vast majority of pixels are silent. Only moving objects generate signal. This is not a software optimization; it is a hardware property.
                     </div>
                 </div>
 
                 <div class="solution-block">
                     <div class="solution-header">
                         <span class="solution-number">02</span>
-                        <span class="solution-title">Depth Estimation from Motion Events</span>
+                        <span class="solution-title">Depth estimation from motion parallax — the forklift's movement works in our favor</span>
                     </div>
                     <div class="solution-body">
-                        Your intuition about inferring depth from motion is technically well-founded. As the forklift (or any object in the scene) moves, <strong>closer objects generate denser, faster-moving event streams than farther objects</strong> — a direct analogue to optical flow, which encodes depth information through relative apparent motion. This is known as <strong>motion parallax-based depth estimation</strong>. Research has shown that optical flow information is almost inherently encoded in the spatio-temporal event patterns, making depth inference feasible without active illumination like LiDAR or structured light. For a forklift that is nearly always in motion, this is a significant advantage: <strong>the vehicle's own movement actively generates the depth signal.</strong>
+                        A forklift is almost always in motion during operation. This is normally a liability for frame cameras — it causes blur. For an event camera, <strong>the vehicle's own motion actively generates depth signal</strong>. As the forklift moves, closer objects generate denser, faster-moving event streams than farther objects — this is motion parallax, and optical flow information is inherently encoded in the spatio-temporal event patterns. Research has demonstrated depth inference from events on mobile platforms without active illumination like LiDAR. The key caveat: this works well when the camera is moving; in stationary or very slow scenarios the depth signal weakens and a complementary sensor would be needed.
                     </div>
                 </div>
 
                 <div class="solution-block">
                     <div class="solution-header">
                         <span class="solution-number">03</span>
-                        <span class="solution-title">Dynamic Obstacle Detection in Cluttered Aisles</span>
+                        <span class="solution-title">Dynamic obstacle detection — only moving objects generate events</span>
                     </div>
                     <div class="solution-body">
-                        In a warehouse, most of the scene is static (racking, pallets) and a small portion is dynamic (workers, moving vehicles). Event cameras are uniquely suited to this distinction: <strong>static objects in a static camera produce no events, so only moving objects generate signal.</strong> Even subtle motion — a worker reaching into a shelf, another vehicle crossing an aisle — will generate events immediately. This enables a lightweight obstacle detection strategy: trigger a full perception response only when motion-induced events exceed a threshold, and otherwise maintain a low-power static map. This mirrors the conditional reconstruction strategy I built for TapeFlyt — gate expensive computation to only when it is needed.
+                        In a warehouse, most of the scene is static and a small fraction is dynamic. Event cameras are uniquely suited to this: <strong>static objects produce zero events in a static camera — only motion generates signal.</strong> Even subtle motion — a worker reaching into a shelf, a vehicle crossing an aisle — generates events immediately. This enables a lightweight gating strategy: run full perception only when event density exceeds a threshold, otherwise maintain a low-cost static map. This mirrors the conditional reconstruction approach I built for TapeFlyt, where I triggered ADMM reconstruction only when the obstacle detector fired — reducing onboard compute by over 90% in sparse scenes.
                     </div>
                 </div>
 
-                <div class="solution-block">
+                <div class="solution-block" style="margin-bottom:32px;">
                     <div class="solution-header">
                         <span class="solution-number">04</span>
-                        <span class="solution-title">Practical Integration Architecture</span>
+                        <span class="solution-title">Practical integration — fusion with existing frame pipeline, not replacement</span>
                     </div>
                     <div class="solution-body">
-                        A practical architecture would fuse an event camera with the existing RGB or depth sensor rather than replacing it. <strong>The event camera handles the fast-changing, high-motion regime</strong> (obstacle onset during travel, sudden worker appearance), while the frame camera handles the static scene understanding (pallet identification, label reading). This fusion approach is well-supported by recent work on event-guided depth estimation, where events are used to correct and sharpen frame-camera depth maps in exactly the adverse conditions — motion blur and poor lighting — that warehouse perception encounters. The result is a system that is robust by design: each modality covers the other's failure mode.
+                        The most realistic path to deployment is <strong>fusing an event camera with the existing RGB or depth sensor</strong> rather than replacing it. The event camera handles the fast-changing, high-motion regime — obstacle onset during travel, sudden worker appearance, vibration-heavy payload movement. The frame camera handles static scene understanding — pallet identification, label reading, inventory classification. This fusion approach has research support in event-guided depth estimation, where events correct and sharpen frame-camera depth maps specifically in adverse conditions like motion blur and poor lighting.
                     </div>
                 </div>
 
-                <div class="technical-note">
-                    <strong>On the validity of this idea:</strong> The core claims here are technically supported. Event cameras do inherently eliminate motion blur through their asynchronous, pixel-independent design. Optical flow and motion parallax depth estimation from events is an active research area with demonstrated results on mobile robots. The selective reconstruction / conditional triggering pattern is something I've implemented and validated directly in TapeFlyt. The main open questions for a warehouse deployment would be: (1) performance of event-based detectors on the specific object classes relevant to inventory, (2) calibration and synchronization of an event + frame fusion pipeline at production scale, and (3) the tradeoff between event camera cost and the reliability gains in practice.
+                <!-- SVG AND IMAGE COME HERE — after challenges and proposed solution -->
+                <div class="divider-label">
+                    <span class="divider-label-text">Visual Explainer</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Animated SVG -->
+                <img src="images/event-camera-explainer.svg"
+                     alt="Event camera vs frame camera — motion blur comparison and dot scatter visualization"
+                     style="width:100%; border-radius:6px; border:1px solid #e0dfd9; margin-bottom:16px;">
+
+                <!-- Research pipeline image -->
+                <div style="margin-bottom:28px;">
+                    <img src="images/event_camera1.png"
+                         alt="Event volume, temporal mean and sharpness map pipeline from research"
+                         style="width:100%; border-radius:6px; border:1px solid #e0dfd9;">
+                    <div style="font-size:11px; color:#9b9990; margin-top:6px; padding-left:4px;">
+                        Event camera pipeline from research — scene generates a 3D event volume (x, y, t), collapsed to a temporal mean, then processed into a sharpness map for downstream detection.
+                    </div>
+                </div>
+
+                <!-- Evidence confidence note -->
+                <div class="divider-label">
+                    <span class="divider-label-text">Confidence Assessment</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-left:3px solid #057a55; border-radius:0 6px 6px 0; padding:16px 20px; margin-bottom:16px;">
+                    <div style="font-size:12px; font-weight:600; color:#057a55; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px;">What is well-supported by evidence</div>
+                    <div style="font-size:13px; color:#065f46; line-height:1.75;">
+                        The core sensor physics — asynchronous firing, log intensity detection, zero motion blur, ~120 dB dynamic range — are established facts demonstrated across multiple research platforms. Event-based optical flow and depth estimation on mobile robots have been published results. The conditional gating pattern (trigger compute only on motion) is something I have implemented and validated directly in TapeFlyt.
+                    </div>
+                </div>
+
+                <div style="background:#fffbeb; border:1px solid #fde68a; border-left:3px solid #92400e; border-radius:0 6px 6px 0; padding:16px 20px; margin-bottom:16px;">
+                    <div style="font-size:12px; font-weight:600; color:#92400e; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px;">Reasonable but not yet validated for this domain</div>
+                    <div style="font-size:13px; color:#78350f; line-height:1.75;">
+                        The specific application to forklift-mounted warehouse inventory perception has not, to my knowledge, been published. The analysis that these properties would address the identified failure modes is sound engineering reasoning — but it would require prototyping and testing to confirm performance on the specific object classes and lighting conditions in a real warehouse.
+                    </div>
+                </div>
+
+                <div style="background:#f7f7f5; border:1px solid #e0dfd9; border-left:3px solid #9b9990; border-radius:0 6px 6px 0; padding:16px 20px; margin-bottom:20px;">
+                    <div style="font-size:12px; font-weight:600; color:#5F5E5A; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px;">Open engineering questions</div>
+                    <div style="font-size:13px; color:#5F5E5A; line-height:1.75;">
+                        Production-grade calibration and temporal synchronization between event and frame sensors at scale. Event camera cost vs reliability tradeoff in a production warehouse deployment. Performance on low-contrast or uniformly-lit environments where log intensity changes may be small.
+                    </div>
                 </div>
 
                 <div class="research-tie">
-                    <strong>Connection to my research:</strong> In TapeFlyt, I confronted the same core tradeoff: how do you get reliable depth information on a resource-constrained platform in a degraded sensing environment? The event camera idea extends that same design philosophy — shift the burden of perception onto the sensing physics itself rather than purely algorithmic post-processing. The conditional reconstruction strategy I built (trigger computation only when needed) maps directly onto how event-camera-based obstacle detection would work in practice.
+                    <strong>Connection to my research:</strong> In TapeFlyt, I faced the same core tradeoff — reliable perception on a resource-constrained platform in a degraded sensing environment. The approach I took was to shift the burden of perception onto the sensing physics itself, then gate expensive computation conditionally. The event camera proposal extends that same design philosophy to the warehouse domain. I have not built this system, but I have built and validated the pattern it relies on.
                 </div>
 
             </div>
