@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Kasireddy — Perception & Robotics Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #ffffff;
+            --off-white: #f7f7f5;
+            --light: #eeede9;
+            --border: #e0dfd9;
+            --mid: #9b9990;
+            --dark: #2a2926;
+            --ink: #1a1917;
+            --accent: #1a56db;
+            --accent-light: #eff4ff;
+            --green: #057a55;
+            --green-light: #f0fdf4;
+            --amber: #92400e;
+            --amber-light: #fffbeb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── LAYOUT ── */
+        .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 960px; margin: 0 auto; padding: 0 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a {
+            font-size: 13px;
+            color: var(--mid);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .nav-links a:hover { color: var(--ink); }
+
+        /* ── HERO ── */
+        #hero {
+            padding: 80px 0 64px;
+            border-bottom: 1px solid var(--border);
+            background: var(--white);
+        }
+        .hero-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(40px, 6vw, 62px);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+        .hero-sub {
+            font-size: 16px;
+            color: var(--mid);
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            color: var(--dark);
+            background: var(--off-white);
+        }
+        .badge.green { background: var(--green-light); border-color: #bbf7d0; color: var(--green); }
+        .badge.blue { background: var(--accent-light); border-color: #bfdbfe; color: var(--accent); }
+        .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .stat {
+            background: var(--white);
+            padding: 20px 24px;
+        }
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: var(--ink);
+            display: block;
+            margin-bottom: 2px;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: var(--mid);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        /* ── SECTION ── */
+        .section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+        .section:last-child { border-bottom: none; }
+        .section-header {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 48px;
+        }
+        .section-num {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--mid);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+        .section-rule { flex: 1; height: 1px; background: var(--border); }
+
+        /* ── RESEARCH CARD ── */
+        .research-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+        }
+        .research-card-header {
+            padding: 32px 36px;
+            background: var(--off-white);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 24px;
+        }
+        .research-card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+        .research-card-meta {
+            font-size: 13px;
+            color: var(--mid);
+            font-weight: 400;
+        }
+        .pub-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--amber-light);
+            border: 1px solid #fde68a;
+            color: var(--amber);
+            border-radius: 4px;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .research-card-body { padding: 36px; }
+
+        /* METRICS */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+        .metric-box {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px 18px;
+            text-align: center;
+        }
+        .metric-val {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+        .metric-label {
+            font-size: 11px;
+            color: var(--mid);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* PIPELINE */
+        .pipeline-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--mid);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+        .pipeline {
+            display: flex; align-items: center; gap: 0;
+            overflow-x: auto; padding-bottom: 4px;
+            margin-bottom: 32px;
+        }
+        .pipe-step {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 10px 16px;
+            flex-shrink: 0;
+            text-align: center;
+            min-width: 100px;
+        }
+        .pipe-step-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .pipe-step-sub {
+            font-size: 10px;
+            color: var(--mid);
+            font-weight: 400;
+        }
+        .pipe-arrow {
+            color: var(--border);
+            font-size: 14px;
+            padding: 0 6px;
+            flex-shrink: 0;
+            font-weight: 300;
+        }
+
+        /* CONTRIBUTION GRID */
+        .contrib-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .contrib-item {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px 18px;
+        }
+        .contrib-item-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+        .contrib-item-desc {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.6;
+        }
+
+        /* MEDIA PLACEHOLDER */
+        .media-placeholder {
+            border: 1.5px dashed var(--border);
+            border-radius: 6px;
+            padding: 32px 24px;
+            text-align: center;
+            background: var(--off-white);
+            margin-top: 28px;
+        }
+        .media-placeholder-inner {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        }
+        .media-icon {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--border);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 4px;
+        }
+        .media-icon svg { width: 16px; height: 16px; color: var(--mid); }
+        .media-placeholder-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        .media-placeholder-sub {
+            font-size: 12px;
+            color: var(--mid);
+        }
+        .media-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        /* ── PROJECT CARDS ── */
+        .projects-list { display: flex; flex-direction: column; gap: 16px; }
+        .proj-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--white);
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .proj-card:hover {
+            border-color: #93c5fd;
+            box-shadow: 0 2px 12px rgba(26,86,219,0.06);
+        }
+        .proj-card-inner {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+        }
+        .proj-card-body {
+            padding: 28px 32px;
+            border-right: 1px solid var(--border);
+        }
+        .proj-card-media {
+            padding: 20px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--off-white);
+        }
+        .proj-number {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--mid);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .proj-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+        .proj-stack {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .proj-desc {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+            color: var(--dark);
+            background: var(--off-white);
+        }
+        .proj-media-placeholder {
+            width: 100%;
+            height: 140px;
+            border: 1.5px dashed var(--border);
+            border-radius: 5px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 6px;
+        }
+        .proj-media-label {
+            font-size: 11px;
+            color: var(--mid);
+            font-weight: 500;
+        }
+
+        /* ── EVENT CAMERA SECTION ── */
+        .idea-card {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .idea-card-header {
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .idea-header-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .idea-header-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px;
+            color: var(--ink);
+        }
+        .idea-body { padding: 32px; }
+        .idea-intro {
+            font-size: 15px;
+            color: var(--dark);
+            line-height: 1.75;
+            margin-bottom: 32px;
+            max-width: 760px;
+        }
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+        .challenge-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 18px 20px;
+        }
+        .challenge-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+        .challenge-desc {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.65;
+        }
+        .divider-label {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 24px;
+        }
+        .divider-label-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .divider-line { flex: 1; height: 1px; background: var(--border); }
+        .solution-block {
+            background: var(--white);
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .solution-header {
+            padding: 16px 24px;
+            background: var(--accent-light);
+            border-bottom: 1px solid #bfdbfe;
+            display: flex; align-items: baseline; gap: 12px;
+        }
+        .solution-number {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+        }
+        .solution-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .solution-body {
+            padding: 20px 24px;
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.75;
+        }
+        .solution-body strong { color: var(--dark); font-weight: 600; }
+        .technical-note {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin-top: 28px;
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.75;
+        }
+        .technical-note strong { color: var(--ink); font-weight: 600; }
+        .research-tie {
+            background: var(--green-light);
+            border: 1px solid #bbf7d0;
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--dark);
+            line-height: 1.75;
+        }
+        .research-tie strong { color: var(--green); font-weight: 600; }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .skill-group {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        .skill-group-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--mid);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .skill-list { list-style: none; }
+        .skill-list li {
+            font-size: 13px;
+            color: var(--dark);
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .skill-list li:last-child { border-bottom: none; }
+        .skill-dot {
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ── CONTACT ── */
+        #contact { background: var(--ink); padding: 72px 0; }
+        .contact-inner {
+            display: flex; align-items: center; justify-content: space-between; gap: 48px;
+        }
+        .contact-text h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            color: var(--white);
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+        .contact-text p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            max-width: 360px;
+            line-height: 1.7;
+        }
+        .contact-links { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--white);
+            color: var(--ink);
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.15s;
+        }
+        .contact-btn:hover { background: var(--off-white); }
+        .contact-btn-ghost {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.7);
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .contact-btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .container { padding: 0 18px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .metrics-row { grid-template-columns: repeat(2, 1fr); }
+            .contrib-grid { grid-template-columns: 1fr; }
+            .projects-list .proj-card-inner { grid-template-columns: 1fr; }
+            .proj-card-body { border-right: none; border-bottom: 1px solid var(--border); }
+            .challenges-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .contact-inner { flex-direction: column; }
+            .media-grid-2 { grid-template-columns: 1fr; }
+        }
+
+        /* ── FADE IN ── */
+        .fade { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .fade.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <span class="nav-name">Vivek Kasireddy</span>
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#projects">Projects</a>
+            <a href="#ideas">Ideas</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+    <div class="container">
+        <div class="hero-label">Perception & Localization Engineer</div>
+        <h1 class="hero-name">Vivek Kasireddy</h1>
+        <p class="hero-sub">
+            BS Computer Science & Robotics Engineering, WPI (May 2026). I build real-time perception and localization systems — from lensless aerial navigation to SLAM-based robot guidance — that hold up on constrained hardware in the real world.
+        </p>
+        <div class="hero-badges">
+            <span class="badge blue"><span class="badge-dot"></span>IEEE RA-L Under Review</span>
+            <span class="badge green"><span class="badge-dot"></span>Available May 2026</span>
+            <span class="badge">WPI · 3.81 GPA · 7x Dean's List</span>
+            <span class="badge">US Citizen</span>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-num">86.67%</span>
+                <span class="stat-label">Autonomous Nav Success</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">14 Hz</span>
+                <span class="stat-label">Real-Time Embedded Inference</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">8×</span>
+                <span class="stat-label">Sensing Weight Reduction</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">60+</span>
+                <span class="stat-label">Autonomous Real-World Runs</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research">
+    <div class="section container">
+        <div class="section-header fade">
+            <span class="section-num">01</span>
+            <h2 class="section-title">Research</h2>
+            <div class="section-rule"></div>
+        </div>
+
+        <div class="research-card fade">
+            <div class="research-card-header">
+                <div>
+                    <div class="research-card-title">TapeFlyt: Lensless Aerial Robot Navigation</div>
+                    <div class="research-card-meta">PeAR Lab, WPI &nbsp;·&nbsp; co-first author &nbsp;·&nbsp; Aug 2025 – Present</div>
+                </div>
+                <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0;">
+                    <span class="pub-badge">IEEE RA-L 2026</span>
+                    <span style="font-size:11px; font-weight:500; color:#92400e; background:#fffbeb; border:1px solid #fde68a; border-radius:4px; padding:4px 10px; letter-spacing:0.04em;">
+                        Confidential &amp; Proprietary — Under Review
+                    </span>
+                </div>
+            </div>
+            <div class="research-card-body">
+
+                <div class="metrics-row">
+                    <div class="metric-box">
+                        <span class="metric-val">86.67%</span>
+                        <span class="metric-label">Success Rate</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-val">8.6%</span>
+                        <span class="metric-label">Min Trigger Rate</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-val">8×</span>
+                        <span class="metric-label">Weight Reduction</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-val">&lt;0.001</span>
+                        <span class="metric-label">Lux Required</span>
+                    </div>
+                </div>
+
+                <div class="pipeline-label">Onboard Pipeline</div>
+                <div class="pipeline">
+                    <div class="pipe-step">
+                        <span class="pipe-step-name">Lensless Camera</span>
+                        <span class="pipe-step-sub">Tape diffuser</span>
+                    </div>
+                    <span class="pipe-arrow">&#8594;</span>
+                    <div class="pipe-step">
+                        <span class="pipe-step-name">Obstacle Detector</span>
+                        <span class="pipe-step-sub">30 Hz · stat voting</span>
+                    </div>
+                    <span class="pipe-arrow">&#8594;</span>
+                    <div class="pipe-step">
+                        <span class="pipe-step-name">ADMM Recon.</span>
+                        <span class="pipe-step-sub">14 Hz · conditional</span>
+                    </div>
+                    <span class="pipe-arrow">&#8594;</span>
+                    <div class="pipe-step">
+                        <span class="pipe-step-name">Navigation Policy</span>
+                        <span class="pipe-step-sub">Potential field</span>
+                    </div>
+                    <span class="pipe-arrow">&#8594;</span>
+                    <div class="pipe-step">
+                        <span class="pipe-step-name">MAVLink Control</span>
+                        <span class="pipe-step-sub">ArduPilot</span>
+                    </div>
+                </div>
+
+                <div class="contrib-grid">
+                    <div class="contrib-item">
+                        <div class="contrib-item-title">Physics-Informed Sensing</div>
+                        <div class="contrib-item-desc">Replaced conventional optics with scotch tape as a coded diffuser, passively embedding ordinal depth cues into raw sensor measurements without post-processing algorithms.</div>
+                    </div>
+                    <div class="contrib-item">
+                        <div class="contrib-item-title">Conditional Reconstruction</div>
+                        <div class="contrib-item-desc">Designed a 30 Hz statistical voting detector that gates ADMM reconstruction — cutting computational load by over 90% in sparse environments while preserving safety.</div>
+                    </div>
+                    <div class="contrib-item">
+                        <div class="contrib-item-title">Embedded Deployment</div>
+                        <div class="contrib-item-desc">Full pipeline running at 14 Hz on NVIDIA Jetson Orin Nano — a sub-100g aerial platform with severe power and compute constraints.</div>
+                    </div>
+                    <div class="contrib-item">
+                        <div class="contrib-item-title">Real-World Validation</div>
+                        <div class="contrib-item-desc">60 autonomous runs across 4 environments (cluttered boxes, tunnels, poles, outdoor forest) in complete darkness, no external localization aids.</div>
+                    </div>
+                </div>
+
+                <!-- Confidentiality notice -->
+                <div style="background:#fffbeb; border:1px solid #fde68a; border-left:3px solid #92400e; border-radius:0 6px 6px 0; padding:14px 18px; margin-bottom:20px;">
+                    <div style="font-size:12px; font-weight:600; color:#92400e; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:4px;">Confidential &amp; Proprietary</div>
+                    <div style="font-size:12px; color:#78350f; line-height:1.65;">
+                        This work is currently under review at IEEE Robotics and Automation Letters (RA-L). All results, methods, system designs, and media shown here are shared strictly for recruiting purposes and may not be reproduced, distributed, or disclosed without the explicit written consent of the authors. Failing to follow this will result in serious implications with the WPI Acadamic Honor Code.
+                    </div>
+                </div>
+
+                <!-- Videos -->
+                <div class="media-grid-2">
+
+                    <!-- Video 1: Flight Demo -->
+                    <div style="background:#f7f7f5; border-radius:6px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <video controls style="width:100%; height:100%; object-fit:contain;">
+                            <source src="videos/full_run.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <!-- Video 2: Reconstruction Results -->
+                    <div style="background:#f7f7f5; border-radius:6px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <video controls style="width:100%; height:100%; object-fit:contain;">
+                            <source src="videos/404LensNotFound_LenslessDragon-fly%20Sized%20Aerial%20Robot%20Navigation.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" style="background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="section container">
+        <div class="section-header fade">
+            <span class="section-num">02</span>
+            <h2 class="section-title">Perception & Localization Projects</h2>
+            <div class="section-rule"></div>
+        </div>
+
+        <div class="projects-list">
+
+            <!-- P1 -->
+            <div class="proj-card fade">
+                <div class="proj-card-inner">
+                    <div class="proj-card-body">
+                        <div class="proj-number">P-01 &nbsp;·&nbsp; PeAR Lab, WPI</div>
+                        <div class="proj-title">Lensless Depth Estimation — ADMM & FISTA</div>
+                        <div class="proj-stack">Python · NVIDIA Jetson · ADMM · FISTA · NumPy · OpenCV</div>
+                        <div class="proj-desc">Implemented and tuned optimization-based image reconstruction for lensless depth estimation. Achieving 14 Hz on a Jetson Orin Nano required careful memory layout, single-iteration approximations, and grayscale-only reconstruction to cut dimensionality by 3x. Reached 95% reconstruction accuracy within real-time compute budget.</div>
+                        <div class="proj-tags">
+                            <span class="tag">Depth Estimation</span>
+                            <span class="tag">Embedded Systems</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">Real-Time</span>
+                        </div>
+                    </div>
+                    <div class="proj-card-media">
+                        <div class="proj-media-placeholder">
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#9b9990" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 9.75h18"/></svg>
+                            <div class="proj-media-label">Add figure / video</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P2 -->
+            <<!-- P2 -->
+            <div class="proj-card fade">
+                <div class="proj-card-inner" style="grid-template-columns: 1fr;">
+                    <div class="proj-card-body" style="border-right: none;">
+
+                        <div class="proj-number">P-02 &nbsp;·&nbsp; WPI &nbsp;·&nbsp; Mar – Apr 2026</div>
+                        <div class="proj-title">ROS 2 Autonomous Navigation — TurtleBot3</div>
+                        <div class="proj-stack">ROS2 · Python · Gazebo · Nav2 · Linux</div>
+                        <div class="proj-desc">Built and deployed custom path planning and navigation algorithms for TurtleBot3 in unknown maze environments. Integrated sensor data for real-time localization, enabling autonomous exploration and goal-directed movement — directly analogous to the mapping and localization challenges in dynamic warehouse navigation.</div>
+                        <div class="proj-tags">
+                            <span class="tag">SLAM</span>
+                            <span class="tag">Path Planning</span>
+                            <span class="tag">Localization</span>
+                            <span class="tag">ROS2</span>
+                        </div>
+
+                        <!-- SVG cover + video below the text -->
+                        <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+
+                            <!-- SVG cover diagram — save the SVG from Claude as ros2-cover.svg in your images/ folder -->
+                            <img src="images/ros2-cover.svg"
+                                 alt="SLAM mapping and AMCL localization diagram"
+                                 style="width:100%; border-radius:5px; border:1px solid #e0dfd9;">
+
+                            <div style="display:flex; gap:10px;">
+
+                                <div style="height:200px; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; background:#f7f7f5; display:flex; align-items:center; justify-content:center;">
+                                    <div style="height:200px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                        <video controls style="width:200px; height:200px; object-fit:contain; transform:rotate(90deg);">
+                                            <source src="videos/ros2_turtlebot3.mov" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+
+                                <img src="images/ros2-map.png"
+                                     alt="Generated occupancy map"
+                                     style="width:50%; height:200px; object-fit:cover; border-radius:5px; border:1px solid #e0dfd9;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- P3 -->
+            <div class="proj-card fade">
+                <div class="proj-card-inner" style="grid-template-columns: 1fr;">  <!-- this removes the side column -->
+                    <div class="proj-card-body" style="border-right: none;">
+                        <div class="proj-number">P-03 &nbsp;·&nbsp; Solgud Robotics (Startup) &nbsp;·&nbsp; 2023</div>
+                        <div class="proj-title">SLAM & Localization Debugging — Restaurant Robot</div>
+                        <div class="proj-stack">Python · C++ · SLAM · LiDAR · ROS</div>
+                        <div class="proj-desc">Debugged and resolved failures in SLAM pipelines and localization for a service robot deployed in restaurants and warehouses. Delivered 15 successful real-world demos across dynamic, unstructured environments — the same domain where inventory perception systems like WAM operate.</div>
+                        <div class="proj-tags">
+                            <span class="tag">SLAM</span>
+                            <span class="tag">LiDAR</span>
+                            <span class="tag">Restaurant</span>
+                            <span class="tag">Debugging</span>
+                        </div>
+
+                        <!-- Media sits below the text, full width -->
+                        <div style="display:flex; gap:10px; margin-top:20px;">
+                            <img src="images/Solgud_Robotics.png"
+                                 alt="Solgud robot"
+                                 style=" height:200px; object-fit:contain; border-radius:5px; border:1px solid #e0dfd9;">
+
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="width:100%; height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo1.mov" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="width:100%; height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo.mov" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="width:100%; height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo2.mov" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="width:100%; height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo3.mov" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="width:100%; height:100%; object-fit:contain;">
+                                    <source src="videos/solgud_demo4.mov" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P4 -->
+            <div class="proj-card fade">
+                <div class="proj-card-inner" style="grid-template-columns: 1fr;">
+                    <div class="proj-card-body" style="border-right: none;">
+
+                        <div class="proj-number">P-04 &nbsp;·&nbsp; WPI &nbsp;·&nbsp; Mar 2024 – May 2024</div>
+                        <div class="proj-title">AprilTag Localization — 1mm Accuracy</div>
+                        <div class="proj-stack">C/C++ · AprilTags · MQTT · Multi-Robot Comm.</div>
+                        <div class="proj-desc">Programmed a ramp-climbing robot with AprilTag detection achieving 1mm localization accuracy. The detected tag ID is encoded and transmitted wirelessly via MQTT to a second robot, which decodes the message to navigate through a maze to the destination — demonstrating fiducial-based localization and multi-robot communication, a common baseline in warehouse robot positioning.</div>
+                        <div class="proj-tags">
+                            <span class="tag">AprilTag</span>
+                            <span class="tag">Fiducial Localization</span>
+                            <span class="tag">1mm Accuracy</span>
+                            <span class="tag">MQTT</span>
+                            <span class="tag">Multi-Robot</span>
+                        </div>
+
+                        <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+
+                            <img src="images/apriltag-cover.svg"
+                                 alt="AprilTag detection and MQTT multi-robot communication"
+                                 style="width:100%; border-radius:5px; border:1px solid #e0dfd9;">
+
+                            <div style="display:flex; gap:10px;">
+                                <div style="height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                    <video controls style="width:100%; height:100%; object-fit:contain;">
+                                        <source src="videos/apriltag-demo1.mov" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                    <video controls style="width:100%; height:100%; object-fit:contain;">
+                                        <source src="videos/apriltag-demo2.mov" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                    <video controls style="width:100%; height:100%; object-fit:contain;">
+                                        <source src="videos/apriltag-demo3.mov" type="video/mp4">
+                                    </video>
+                                </div>
+                                <img src="images/apriltag-main.png"
+                                      alt="April-Tag Detection Robot"
+                                      style="flex:1; width:0; height:200px; object-fit:cover; border-radius:5px; border:1px solid #e0dfd9;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P5 -->
+            <!-- P5 -->
+            <div class="proj-card fade">
+                <div class="proj-card-inner" style="grid-template-columns: 1fr;">
+                    <div class="proj-card-body" style="border-right: none;">
+
+                        <div class="proj-number">P-05 &nbsp;·&nbsp; WPI &nbsp;·&nbsp; Jan – Mar 2025</div>
+                        <div class="proj-title">Industrial Arm — Real-Time Machine Vision Tracking</div>
+                        <div class="proj-stack">MATLAB · OpenCV · Embedded C · Linux</div>
+                        <div class="proj-desc">Designed a real-time machine vision tracking system to control a 5-DOF robotic arm for dynamic object following. Built a full trajectory generator and inverse kinematics solver, achieving 95% control accuracy. Demonstrates end-to-end perception-to-actuation pipeline design.</div>
+                        <div class="proj-tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Object Tracking</span>
+                            <span class="tag">Inverse Kinematics</span>
+                            <span class="tag">Real-Time</span>
+                        </div>
+
+                        <!-- Media below the text -->
+                        <div style="display:flex; gap:10px; margin-top:20px;">
+
+                            <!-- Image or second video -->
+                            <img src="images/arm_robot_main.png"
+                                 alt="Machine vision tracking screenshot"
+                                 style=" height:200px; object-fit:contain; border-radius:5px; border:1px solid #e0dfd9;">
+                            <img src="images/arm_robot3.png"
+                                 alt="Machine vision tracking screenshot"
+                                 style=" height:200px; object-fit:contain; border-radius:5px; border:1px solid #e0dfd9;">
+
+                            <!-- Video -->
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="height:200%; object-fit:cover;">
+                                    <source src="videos/serial_arm2.mov" type="video/mp4">
+                                </video>
+                            </div>
+                            <div style=" height:200px; background:#f7f7f5; border-radius:5px; border:1px solid #e0dfd9; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                                <video controls style="width:100%; height:100%; object-fit:cover;">
+                                    <source src="videos/serial_arm1.mov" type="video/mp4">
+                                </video>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- EVENT CAMERA IDEAS -->
+<div id="ideas">
+    <div class="section container">
+        <div class="section-header fade">
+            <span class="section-num">03</span>
+            <h2 class="section-title">Technical Ideas &amp; Problem Analysis</h2>
+            <div class="section-rule"></div>
+        </div>
+
+        <div class="idea-card fade">
+            <div class="idea-card-header">
+                <div>
+                    <div class="idea-header-label">Perception Challenges in Dense Warehouse Environments</div>
+                    <div class="idea-header-title">Event Cameras as a Solution to Motion Blur &amp; Dynamic Scene Perception</div>
+                </div>
+            </div>
+            <div class="idea-body">
+
+                <p class="idea-intro">
+                    Forklift-mounted vision systems face a specific and well-known set of failure modes. Understanding these challenges — and having concrete ideas to address them — is as important as the implementation skills themselves. Below is my analysis of the two hardest perception problems in this domain and a technically grounded proposal for addressing them.
+                </p>
+
+                <div class="divider-label">
+                    <span class="divider-label-text">Core Challenges</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <div class="challenges-grid">
+                    <div class="challenge-item">
+                        <div class="challenge-title">Challenge 1 — Motion Blur from Payload Vibration</div>
+                        <div class="challenge-desc">Forklifts carrying heavy loads generate significant vibration and abrupt motion, particularly during start/stop and turning. Conventional frame-based cameras integrate light over a fixed exposure window, so even moderate motion produces smeared images. The heavier the payload, the more pronounced the effect — precisely when reliable perception matters most.</div>
+                    </div>
+                    <div class="challenge-item">
+                        <div class="challenge-title">Challenge 2 — Dense, Cluttered, and Dynamic Environments</div>
+                        <div class="challenge-desc">Warehouse aisles are densely packed with pallets, racking, and workers — a fundamentally cluttered scene. Unlike static environments, objects are constantly moving (conveyors, workers, other vehicles). Standard cameras and LiDAR suffer from latency that makes it difficult to track fast-moving objects or detect sudden obstructions before they become a hazard.</div>
+                    </div>
+                </div>
+
+                <div class="divider-label">
+                    <span class="divider-label-text">Proposed Solution: Event Camera Integration</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <div class="solution-block">
+                    <div class="solution-header">
+                        <span class="solution-number">01</span>
+                        <span class="solution-title">Why Event Cameras Are Built for This Problem</span>
+                    </div>
+                    <div class="solution-body">
+                        Unlike frame cameras that capture full images at a fixed rate, <strong>event cameras fire asynchronously at the pixel level</strong> — each pixel independently reports a brightness change the moment it occurs, with microsecond-level latency. This means motion blur is eliminated by design: there is no exposure window over which light accumulates. A forklift vibrating under payload doesn't degrade an event camera the way it would a standard sensor. Research on industrial robotics has confirmed that their <strong>high temporal resolution, high dynamic range (~120 dB), and inherent resistance to motion blur</strong> make them well-suited for exactly this class of environment.
+                    </div>
+                </div>
+
+                <div class="solution-block">
+                    <div class="solution-header">
+                        <span class="solution-number">02</span>
+                        <span class="solution-title">Depth Estimation from Motion Events</span>
+                    </div>
+                    <div class="solution-body">
+                        Your intuition about inferring depth from motion is technically well-founded. As the forklift (or any object in the scene) moves, <strong>closer objects generate denser, faster-moving event streams than farther objects</strong> — a direct analogue to optical flow, which encodes depth information through relative apparent motion. This is known as <strong>motion parallax-based depth estimation</strong>. Research has shown that optical flow information is almost inherently encoded in the spatio-temporal event patterns, making depth inference feasible without active illumination like LiDAR or structured light. For a forklift that is nearly always in motion, this is a significant advantage: <strong>the vehicle's own movement actively generates the depth signal.</strong>
+                    </div>
+                </div>
+
+                <div class="solution-block">
+                    <div class="solution-header">
+                        <span class="solution-number">03</span>
+                        <span class="solution-title">Dynamic Obstacle Detection in Cluttered Aisles</span>
+                    </div>
+                    <div class="solution-body">
+                        In a warehouse, most of the scene is static (racking, pallets) and a small portion is dynamic (workers, moving vehicles). Event cameras are uniquely suited to this distinction: <strong>static objects in a static camera produce no events, so only moving objects generate signal.</strong> Even subtle motion — a worker reaching into a shelf, another vehicle crossing an aisle — will generate events immediately. This enables a lightweight obstacle detection strategy: trigger a full perception response only when motion-induced events exceed a threshold, and otherwise maintain a low-power static map. This mirrors the conditional reconstruction strategy I built for TapeFlyt — gate expensive computation to only when it is needed.
+                    </div>
+                </div>
+
+                <div class="solution-block">
+                    <div class="solution-header">
+                        <span class="solution-number">04</span>
+                        <span class="solution-title">Practical Integration Architecture</span>
+                    </div>
+                    <div class="solution-body">
+                        A practical architecture would fuse an event camera with the existing RGB or depth sensor rather than replacing it. <strong>The event camera handles the fast-changing, high-motion regime</strong> (obstacle onset during travel, sudden worker appearance), while the frame camera handles the static scene understanding (pallet identification, label reading). This fusion approach is well-supported by recent work on event-guided depth estimation, where events are used to correct and sharpen frame-camera depth maps in exactly the adverse conditions — motion blur and poor lighting — that warehouse perception encounters. The result is a system that is robust by design: each modality covers the other's failure mode.
+                    </div>
+                </div>
+
+                <div class="technical-note">
+                    <strong>On the validity of this idea:</strong> The core claims here are technically supported. Event cameras do inherently eliminate motion blur through their asynchronous, pixel-independent design. Optical flow and motion parallax depth estimation from events is an active research area with demonstrated results on mobile robots. The selective reconstruction / conditional triggering pattern is something I've implemented and validated directly in TapeFlyt. The main open questions for a warehouse deployment would be: (1) performance of event-based detectors on the specific object classes relevant to inventory, (2) calibration and synchronization of an event + frame fusion pipeline at production scale, and (3) the tradeoff between event camera cost and the reliability gains in practice.
+                </div>
+
+                <div class="research-tie">
+                    <strong>Connection to my research:</strong> In TapeFlyt, I confronted the same core tradeoff: how do you get reliable depth information on a resource-constrained platform in a degraded sensing environment? The event camera idea extends that same design philosophy — shift the burden of perception onto the sensing physics itself rather than purely algorithmic post-processing. The conditional reconstruction strategy I built (trigger computation only when needed) maps directly onto how event-camera-based obstacle detection would work in practice.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" style="background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="section container">
+        <div class="section-header fade">
+            <span class="section-num">04</span>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-rule"></div>
+        </div>
+        <div class="skills-grid fade">
+            <div class="skill-group">
+                <div class="skill-group-title">Perception & Vision</div>
+                <ul class="skill-list">
+                    <li><span class="skill-dot"></span>Computer Vision (OpenCV)</li>
+                    <li><span class="skill-dot"></span>LiDAR Integration & Sensor Fusion</li>
+                    <li><span class="skill-dot"></span>Depth Estimation (Lensless, Stereo)</li>
+                    <li><span class="skill-dot"></span>Image Reconstruction (ADMM, FISTA)</li>
+                    <li><span class="skill-dot"></span>Object Detection & Tracking</li>
+                    <li><span class="skill-dot"></span>CNN Classification (TensorFlow, PyTorch)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-title">Localization & Navigation</div>
+                <ul class="skill-list">
+                    <li><span class="skill-dot"></span>SLAM (Simultaneous Localization & Mapping)</li>
+                    <li><span class="skill-dot"></span>ROS2 & Nav2 Stack</li>
+                    <li><span class="skill-dot"></span>Path Planning & Motion Control</li>
+                    <li><span class="skill-dot"></span>AprilTag / Fiducial Localization</li>
+                    <li><span class="skill-dot"></span>Optical Flow & Pose Estimation</li>
+                    <li><span class="skill-dot"></span>Inverse Kinematics (5-DOF)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-title">Systems & Embedded</div>
+                <ul class="skill-list">
+                    <li><span class="skill-dot"></span>NVIDIA Jetson Orin Nano</li>
+                    <li><span class="skill-dot"></span>Python, C/C++, MATLAB</li>
+                    <li><span class="skill-dot"></span>FPGA (Altera) · SPI · LVDS</li>
+                    <li><span class="skill-dot"></span>Raspberry Pi, Arduino</li>
+                    <li><span class="skill-dot"></span>Linux, Git, Gazebo</li>
+                    <li><span class="skill-dot"></span>MAVLink · ArduPilot</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact">
+    <div class="container">
+        <div class="contact-inner">
+            <div class="contact-text">
+                <h2>Let's talk perception engineering.</h2>
+                <p>I'm graduating May 2026 and actively looking for roles where I can contribute to real-world robot perception from day one.</p>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:vivekkasireddyr@gmail.com" class="contact-btn">vivekkasireddyr@gmail.com</a>
+                <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank" class="contact-btn-ghost">LinkedIn</a>
+                <a href="https://github.com/YOUR-GITHUB" target="_blank" class="contact-btn-ghost">GitHub</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('visible'), i * 60);
+            }
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
